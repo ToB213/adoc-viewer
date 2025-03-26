@@ -1,0 +1,20 @@
+= AITAmbulanceTargetAllocator
+https://maslab.aitech.ac.jp/codimd/27fRkZwiR6G844SWKrwy6g[解説]
+
+== detectOptRefuge
+送るメッセージの優先度をHighに変更
+他は同様
+
+== getOptRefugeID
+最適な避難所選択を選択するメソッド
+
+:stem:
+`refuges` の各避難所のコスト stem:[refugeUtility_i] の式は以下．
+stem:[refugeCost_i=\frac{occupiedBed_i+waitingList_i}{bedCapacity_i}]
+
+最もstem:[refugeCost]が低いrefugeのEntityIDを返す．
+
+ベッド容量に関するもので値は stem:[0\leq\frac{occupiedBed}{bedCapacity}]の範囲．
+
+stem:[occupiedBed_i]は避難所stem:[i]で使用されているベッドの数，stem:[bedCapacity_i]は避難所stem:[i]のベッド容量，stem:[waitingList_i]は避難所stem:[i]のベッドの空き待ち人数
+計算式はExtActionTransportと同じ
